@@ -37,3 +37,11 @@ docker stop [название контейнера]
 3. Приложение автопарк должно ориентироваться на обработку заявки в определенном городе. 
 (каждому городу должна соответствовать своя очередь сообщений).
 4. Информация о названиях очередей для городов должна находиться в базе данных. 
+
+# liquibase
+# rollback example
+mvn -Plocal liquibase:rollback -Dliquibase.rollbackCount=1
+
+# Swagger
+http://localhost:8080/swagger-ui.html
+localhost:8080/v2/api-docs
