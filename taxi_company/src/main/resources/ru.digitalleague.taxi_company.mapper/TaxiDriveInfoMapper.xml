@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="ru.digitalleague.taxi_company.mapper.TaxiDriverInfoMapper">
+
+    <resultMap id="driverResultMap" type="ru.digitalleague.core.model.TaxiDriverInfoModel" autoMapping="true">
+    </resultMap>
+
+    <select id="findDriver1" parameterType="ru.digitalleague.core.model.OrderDetails"
+            resultType="ru.digitalleague.core.model.TaxiDriverInfoModel">
+        select driver_id, last_name, first_name, "level", car_model, create_dttm,
+               minute_cost, rating, is_free, city_id
+        from taxi_drive_info
+        where is_free=true
+            and city_id=#{cityId}
+        order by rating desc
+        limit 1
+    </select>
+
+</mapper>

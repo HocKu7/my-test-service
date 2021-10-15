@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.OffsetDateTime;
 
 @Data
-public class Order {
+public class OrderModel {
 
     /**
      * Идентификатор поездки.

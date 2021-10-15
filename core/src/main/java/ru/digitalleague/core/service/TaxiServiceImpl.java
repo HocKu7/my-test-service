@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import ru.digitalleague.core.mapper.TaxiInfoMapper;
-import ru.digitalleague.core.model.OrderDetails;
 import ru.digitalleague.core.api.TaxiService;
+import ru.digitalleague.core.model.OrderDetails;
+import ru.digitalleague.core.model.TaxiDriverInfoModel;
 
 @Service
 public class TaxiServiceImpl implements TaxiService {
@@ -35,6 +36,8 @@ public class TaxiServiceImpl implements TaxiService {
         }
 
         String queueByCity = mapper.getQueueByCity(orderDetails.getCity());
+        TaxiDriverInfoModel taxiDriverInfoModel = mapper.selectByPrimaryKey(1L);
+        System.out.println(taxiDriverInfoModel);
 
         if (ObjectUtils.isEmpty(queueByCity)) return "Заказ не принят, город не известен";
 

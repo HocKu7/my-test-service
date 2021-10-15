@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
 import ru.digitalleague.taxi_company.config.ApplicationConfiguration;
+import ru.digitalleague.taxi_company.config.MyBatisConfig;
 
 @SpringBootApplication
 @Import(ApplicationConfiguration.class)

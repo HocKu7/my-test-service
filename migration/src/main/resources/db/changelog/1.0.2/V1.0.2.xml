@@ -61,4 +61,32 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="2021-10-10 13:00:00" author="skuznetsov">
+        <sqlFile path="sql/core/alter_taxi_driver_info_2.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/alter_taxi_driver_info_2_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-10-10 15:00:00" author="skuznetsov">
+        <sqlFile path="sql/core/alter_taxi_drive_info_3.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/alter_taxi_drive_info_3_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-10-10 16:00:00" author="skuznetsov">
+        <sqlFile path="sql/core/alter_taxi_drive_info_4.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/alter_taxi_drive_info_4_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-10-10 18:00:00" author="skuznetsov">
+        <sqlFile path="sql/core/alter_taxi_drive_info_5.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/alter_taxi_drive_info_5_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

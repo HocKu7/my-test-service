@@ -1,0 +1,1 @@
+alter table taxi_drive_info add column if not exists is_free boolean default true;

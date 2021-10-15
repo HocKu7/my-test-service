@@ -1,11 +1,23 @@
 package ru.digitalleague.taxi_company.api;
 
-import ru.digitalleague.taxi_company.model.Order;
+import ru.digitalleague.core.model.OrderDetails;
 
 /**
  * Сервис обработки заказов.
- * */
+ */
 public interface OrderService {
 
-    void save(Order order);
+    /**
+     * Обработать полученный заказ.
+     *
+     * @param order информация о заказе.
+     */
+    void proceedOrder(OrderDetails order);
+
+    /**
+     * Рассчитать конечную стоимость заказа.
+     *
+     * @param orderId идентификатор поездки
+     */
+    void calculateOrderSum(Long orderId);
 }
