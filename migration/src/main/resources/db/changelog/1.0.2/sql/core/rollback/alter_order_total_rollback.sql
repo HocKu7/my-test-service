@@ -1,0 +1,1 @@
+alter table order_total alter column sum set data type int;

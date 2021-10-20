@@ -89,4 +89,18 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="2021-10-20 18:00:00" author="skuznetsov">
+        <sqlFile path="sql/core/alter_order_total.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/alter_order_total_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2021-10-20 19:00:00" author="skuznetsov">
+        <sqlFile path="sql/core/drivers_rating.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/core/rollback/drivers_rating_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

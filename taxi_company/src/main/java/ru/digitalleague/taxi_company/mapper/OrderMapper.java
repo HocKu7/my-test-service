@@ -37,7 +37,7 @@ public interface OrderMapper {
     /**
      * Обновление времени заказа.
      *
-     * @param order инфорамция о заказе.
+     * @param order информация о заказе.
      */
     @Update("update orders " +
             "        set start_trip    = now() " +
@@ -53,4 +53,13 @@ public interface OrderMapper {
             "        set end_trip = now() " +
             "        where order_id = #{orderId}")
     void updateFinishOrderTime(OrderModel order);
+
+    /**
+     * Сохраняем информацию о стоимости заказа.
+     *
+     * @param orderId идентификатор заказа
+     * @param total   конечная сумма
+     */
+    @Insert("insert into order_total(order_id, sum) values (#{orderId}, #{total})")
+    void saveOrderWithFinalSum(Long orderId, Long total);
 }

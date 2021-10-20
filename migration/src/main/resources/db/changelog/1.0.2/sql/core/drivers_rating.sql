@@ -1,0 +1,1 @@
+create table if not exists drivers_rating(driver_id int primary key not null, rating int not null);

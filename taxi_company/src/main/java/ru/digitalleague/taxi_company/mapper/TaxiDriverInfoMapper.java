@@ -1,12 +1,15 @@
 package ru.digitalleague.taxi_company.mapper;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import ru.digitalleague.core.model.TaxiDriverInfoModel;
+import ru.digitalleague.taxi_company.model.DriverRating;
 
 @Repository
 @Mapper
@@ -34,4 +37,16 @@ public interface TaxiDriverInfoMapper {
             "        order by rating desc " +
             "        limit 1")
     TaxiDriverInfoModel findDriver(Long cityId);
+
+    @Update("update taxi_drive_info set is_free=false where driver_id=#{driverId}")
+    void lockDriver(Long driverId);
+
+    @Update("update taxi_drive_info set is_free=true where driver_id=#{driverId}")
+    void unlockDriver(Long driverId);
+
+    @Select("select minute_cost from taxi_drive_info where driver_id=#{driverId}")
+    int getMinuteCost(Long driverId);
+
+    @Insert("insert into drivers_rating (driver_id, rating) VALUES (#{driverId}, #{rating})")
+    void saveDriverRating(DriverRating driverRating);
 }
