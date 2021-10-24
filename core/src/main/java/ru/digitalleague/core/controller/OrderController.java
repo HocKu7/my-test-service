@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import ru.digitalleague.core.api.RatingService;
 import ru.digitalleague.core.api.TaxiService;
+import ru.digitalleague.core.model.FeedBackModel;
 import ru.digitalleague.core.model.OrderDetails;
 
 @RestController
@@ -19,6 +21,9 @@ public class OrderController {
     @Autowired
     private TaxiService taxiService;
 
+    @Autowired
+    private RatingService ratingService;
+
     @PostMapping("/order-taxi")
     @ApiOperation(value = "Контроллер для заказа такси")
     public ResponseEntity<String> receive(@RequestBody OrderDetails orderDetails) {
@@ -27,5 +32,13 @@ public class OrderController {
         String result = taxiService.notifyTaxi(orderDetails);
 
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/feedback")
+    @ApiOperation(value = "Контроллер для заказа такси")
+    public ResponseEntity<String> feedBack(@RequestBody FeedBackModel feedBackModel) {
+        ratingService.save(feedBackModel);
+
+        return ResponseEntity.ok("Ваш рейтинг принят, спасибо");
     }
 }

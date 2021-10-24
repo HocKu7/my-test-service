@@ -1,0 +1,1 @@
+alter table drivers_rating alter rating set data type real;
